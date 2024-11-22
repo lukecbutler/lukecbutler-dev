@@ -1,0 +1,19 @@
+<!-- projects html -->
+
+{% extends "abase.html" %}
+
+{% block title %}Proejcts{% endblock %}
+{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
+
+{% block body %}
+
+<h1 id="projects-h1">
+    Projects
+</h1>
+<h3>
+    <a href="/contact/home">
+        Contact Book
+    </a>
+</h3>
+
+{% endblock %}

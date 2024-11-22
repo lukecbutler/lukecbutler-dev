@@ -1,0 +1,70 @@
+<!-- homepage html -->
+
+{% extends "abase.html" %}
+
+{% block title %}{% endblock %}
+{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
+
+{% block body %}
+
+<h1 id="contact_book">Welcome to Awesomeville</h1>
+<section id="about">
+    <h2 id="abouth2">About Me</h2>
+    <p>Hi! I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way! </p>
+    <p>Aspiring web and software developer dedicated to creating websites and applications for small to medium-sized businesses.</p>
+</section>
+
+<section id="projects">
+    <h2 id="projectsh2">Projects</h2>
+    <div>
+
+        <h3><a href="/contact/home">Contact Book Web App</a></h3>
+        <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
+        <ul class="projects">
+            <li><strong>Flask:</strong> Python web framework for connecting the database to the UI</li>
+            <li><strong>HTML/CSS:</strong> Display and user interface</li>
+        </ul>
+
+        <h3><a href="/pokedex">Pokédex Web App</a></h3>
+        <p>Pokédex displaying the 151 original Pokémon, combining technologies:</p>
+        <ul class="projects">
+            <li><strong>HTML/CSS:</strong> Display and user interface</li>
+            <li><strong>SQL:</strong> Database management of Pokémon data</li>
+            <li><strong>Flask:</strong> Python web framework for connecting the database to the UI</li>
+        </ul>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 id="skillsh2">Skills</h2>
+    <ul class="skills">
+        <li>Python</li>
+        <li>Java</li>
+        <li>SQL</li>
+        <li>HTML / CSS</li>
+    </ul>
+</section>
+
+<section id="experience">
+    <h2 id="experienceh2">Experience</h2>
+    <p>Relevant coursework:</p>
+    <ul class="experience">
+        <li>Java Object-Oriented Programming</li>
+        <li>Python Programming</li>
+        <li>SQL Database Programming</li>
+        <li>Computer Networking</li>
+    </ul>
+    <p>Research Assistant at UNCW</p>
+
+</section>
+
+<section id="contact">
+    <h2 id="contacth2">Contact Information</h2>
+    <ul class="contact-info">
+        <li><strong>Email:</strong> lcb9606@uncw.edu</li>
+        <li><a href="https://github.com/tarheelfan200">GitHub</a></li>
+    </ul>
+</section>
+
+
+{% endblock %}

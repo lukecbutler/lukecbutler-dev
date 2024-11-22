@@ -1,0 +1,39 @@
+<!-- add contact html -->
+{% extends "abase.html" %}
+
+{% block title %}Add Contact{% endblock %}
+
+{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
+
+{% block body %}
+<h1 id="add_contact">Add Contact</h1>
+    <form action="/contact/add" method="POST">
+
+
+        <div id="name-div">
+            <label >Name: </label>
+            <input type="text" name="contact-name"><br>
+        </div>
+
+
+
+        <div id="number-div">
+            <label>Number: </label>
+            <input type="text" name="contact-number"><br>
+        </div>
+        
+        
+
+        <div id="button-div">
+            <button type="submit">Add Contact</button>
+        </div>    
+
+        <div id="error">
+            {{error}}
+        </div>
+
+
+    </form>
+    <p id="to-home-div"><a href="/contact/home">Go Back</a></p>
+
+{% endblock %}

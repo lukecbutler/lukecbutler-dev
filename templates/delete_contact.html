@@ -1,0 +1,36 @@
+<!-- delele contact html -->
+{% extends "abase.html" %}
+
+{% block title %}Delete Contact{% endblock %}
+{% block link %}<link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
+
+{% block body %}
+
+<h1 id="delete_contact">Delete Contact</h1>
+
+    <h2 id="contacts">Contacts: </h2>
+    <p id="contacts">
+        {% for contact in contacts %}
+
+        {{loop.index}}. {{contact[0]}} {{contact[1]}}
+    
+        <br><br>
+        {% endfor %}
+
+    </p>
+    <p id="error">
+        {{error}}
+    </p>
+
+
+    <form action="/contact/delete" method="POST" id="delete_contact">
+        <label>Enter Index of Contact: </label>
+        <input name="contact-number" min="1" step="1">
+
+        <input type="submit">
+    </form>
+
+    <p id="to-home-div"> <a href="/contact/home">Go Back</a></p>
+
+
+{% endblock %}

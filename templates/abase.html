@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Luke's Website{% endblock %}</title>
+    {% block link %}{% endblock %}
+</head>
+<header>
+    <div id="main-header-div">
+        <h1 id="website-header">
+            <a href="/">Luke's Website</a>
+        </h1>
+
+        <img src="{{url_for('static', filename = 'images/charizard.png')}}" alt="Logo" id="logo">
+
+    </div>
+    <hr>
+</header>
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>

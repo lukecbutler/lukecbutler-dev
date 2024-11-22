@@ -1,0 +1,15 @@
+<!-- contact home page html-->
+{% extends "abase.html" %}
+
+{% block title %}Contact Book{% endblock %}
+
+{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
+
+{% block body %}
+
+    <h1 id="contact_book">Contact Book</h1>
+    <h2 id="add_contact"><a href="/contact/add">Add Contact</a></h2>
+    <h2 id="show_contacts"><a href="/contact/show">Show Contacts</a></h2>
+    <h2 id="delete_contact"><a href="/contact/delete">Delete Contact</a></h2>
+
+{% endblock %}

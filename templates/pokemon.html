@@ -1,0 +1,53 @@
+{% extends "abase.html" %}
+
+{% block title %}Pokedex{% endblock %}
+
+{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/pokedex.css')}}">{% endblock %}
+
+{% block body %}
+
+
+
+<!-- id title is refferenced in the css file with a #-->
+<h1 id = "title">
+    Pokédex v1
+</h1>
+
+<h2 id = 'original151'>
+    Orignal 151 Pokémon!
+</h2>
+
+
+<form actions="/" method = "POST">
+    <input type = 'form' name = 'pokemon_id' placeholder="Enter Pokémon ID">
+    <button type = 'submit'>Get your Pokémon!</button>
+</form>
+
+<div>
+    <p id = "divider">
+    </p>
+</div>
+
+
+{% if pokemon_id %} <!--- checks if pokemon_id exists. then continus if pokemon_id does exist-->
+
+
+<img id = "image" src = "{{url_for('static', filename = 'images/pokemon/' + speciesLow + '.png')}}">
+
+    <p> Pokemon ID: {{pokemon_id}}</p> 
+    <p> Species: {{speciesLow}} </p>
+    <p> Type: {{type1}} </p>
+
+    {% if type2 != None %} <!-- None is equivalent to Null. this checks if type2 is a value, and prints type2 if there is a value-->
+
+        <p> Secondary Typing: {{type2}}</p>
+
+    {% endif%}
+
+{% elif error %}
+    <pd> {{error}}</p>
+{% endif %}
+
+
+
+{% endblock %}
