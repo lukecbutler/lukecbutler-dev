@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 contacts = []
 
+'''
 DB_CONFIG = {
     "host": "tarheelfan2002.mysql.pythonanywhere-services.com",
     "user": "tarheelfan2002",
@@ -22,7 +23,7 @@ DB_CONFIG = {
     "password": "password",
     "database": "Pokemon"
 }
-'''
+
 
 def get_db_connection():
     return pymysql.connect(**DB_CONFIG)
@@ -64,6 +65,8 @@ def get_pokemon():
         pokemon = cursor.fetchone()
 
         speciesLow = pokemon[1].lower()
+
+
 
         if pokemon:
             return render_template('pokemon.html', pokemon_id = pokemon[0], speciesLow = speciesLow, type1 = pokemon[2], type2 = pokemon[3])
