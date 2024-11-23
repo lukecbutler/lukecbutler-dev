@@ -35,7 +35,7 @@
 <img id = "image" src = "{{url_for('static', filename = 'images/pokemon/' + speciesLow + '.png')}}">
 
     <p> Pokemon ID: {{pokemon_id}}</p> 
-    <p> Species: {{speciesLow}} </p>
+    <p> Species: {{speciesLow | upper}} </p>
     <p> Type: {{type1}} </p>
 
     {% if type2 != None %} <!-- None is equivalent to Null. this checks if type2 is a value, and prints type2 if there is a value-->
