@@ -42,40 +42,6 @@ def projects():
 
 
 
-###################################################################################
-'''Pokedex'''
-###################################################################################
-
-@app.route('/pokedex', methods = {'GET', 'POST'})
-def get_pokemon():
-
-    # when accessing any host, a get request is automatically sent from the browser to the server, that is why get is called automatically
-    if request.method == 'GET':
-        return render_template('pokemon.html')
-
-    if request.method == 'POST':
-
-        pokemon_id = request.form['pokemon_id']
-        conn = get_db_connection()
-
-        cursor = conn.cursor()
-
-        cursor.execute("SELECT master_id, species, type1, type2 FROM pokemon_data WHERE master_id = %s", (pokemon_id))
-
-        pokemon = cursor.fetchone()
-
-        speciesLow = pokemon[1].lower()
-
-
-
-        if pokemon:
-            return render_template('pokemon.html', pokemon_id = pokemon[0], speciesLow = speciesLow, type1 = pokemon[2], type2 = pokemon[3])
-
-        else:
-            return render_template('pokemon.html', error = "Pokemon not found.")
-
-
-
 
 ####################################################################################
 """Contact Book Routes:"""
