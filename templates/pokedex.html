@@ -1,0 +1,63 @@
+<!-- pokedex html -->
+{% extends "abase.html" %}
+
+{% block title %}Pokedex{% endblock %}
+{% block link %}<link rel="stylesheet" href="{{url_for('static', filename = 'css/pokedex.css')}}">{% endblock %}
+
+{% block body %}
+
+
+
+    <!-- id title is refferenced in the css file with a #-->
+    <h1 id = "title">
+        Original 151 Pokédex
+    </h1>
+
+    <form action="/pokedex" method="POST" id="id-form">
+        <div>
+            <label>Enter Pokemon ID:</label>
+            <input type="text" name="pokemon-id">
+            <button type="submit" name="pokemon-id">Get your Pokemon!</button>
+        </div>
+    </form>
+
+    <div id="error-div">
+        {{error}}
+    </div>
+
+    <div>
+        <ul>
+            {% if pokemon %}
+
+            <img src="{{url_for('static', filename = 'images/pokemon/' + species + '.png')}}" id="pokemon-picture">
+
+            <li>
+                Pokemon ID: {{id}}
+            </li>
+            <li>
+                Species: {{species}}
+            </li>
+            <li>
+                Type: {{type1}}
+            </li>
+
+            {% if type2 %}
+            <li>
+                Secondary Type: {{type2}}
+            </li>
+            {% endif %}
+
+            <li>
+                Height: {{feet}}' {{inches}}"
+            </li>
+            <li>
+                Weight: {{weight}} lbs
+            </li>
+            <li>
+                Entry: {{entry}}
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+
+{% endblock %}
