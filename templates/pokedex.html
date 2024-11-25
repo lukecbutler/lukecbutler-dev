@@ -14,10 +14,10 @@
     </h1>
 
     <form action="/pokedex" method="POST" id="id-form">
-        <div>
+        <div id="enter-id">
             <label>Enter Pokemon ID:</label>
-            <input type="text" name="pokemon-id">
-            <button type="submit" name="pokemon-id">Get your Pokemon!</button>
+            <input type="text" name="pokemon-id" id="pokemon-id-form">
+            <button type="submit" id="pokemon-id-button">Get your Pokemon!</button>
         </div>
     </form>
 
@@ -25,11 +25,11 @@
         {{error}}
     </div>
 
-    <div>
-        <ul>
+    <div class="container">
+        <ul id="pokemon-data">
             {% if pokemon %}
 
-            <img src="{{url_for('static', filename = 'images/pokemon/' + species + '.png')}}" id="pokemon-picture">
+            <img src="{{url_for('static', filename = 'images/pokemon/' + species + '.png')}}" id="pokemon-picture" class="image">
 
             <li>
                 Pokemon ID: {{id}}

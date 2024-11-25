@@ -2,13 +2,12 @@
 #main-header-div{
     display: flex;
     justify-content: space-between;
-
-
 }
 #website-header{
     display: flex;
     margin-left: auto;
     padding-left: 107px;
+    font-size: 45px;
 }
 #logo {
     display: flex;
@@ -19,12 +18,38 @@
 }
 
 /* Header css */
+/* 
+
+|<- Margin ->| [Border [Padding [Content]]] |<- Margin ->|
+
+*/
 
 
-body{
+body {
     background-color: darkgray;
 }
 
-#title{
+#title, #enter-id, #error-div {
     text-align: center;
+    padding-bottom: 5px;
+}
+
+#title{
+    font-size: 45px;
+    color: lightskyblue;
+    text-shadow: 2px 2px 2px white;
+
+}
+
+#pokemon-data {
+    font-size: 30px;
+}
+
+#pokemon-id-form {
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+#pokemon-id-button {
+    border-radius: 5px;
+    border: 2px solid grey;
 }
