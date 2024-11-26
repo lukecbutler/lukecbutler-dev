@@ -26,38 +26,38 @@
     </div>
 
     <div class="container">
-        <ul id="pokemon-data">
-            {% if pokemon %}
+        {% if pokemon %}
 
-            <img src="{{url_for('static', filename = 'images/pokemon/' + species + '.png')}}" id="pokemon-picture" class="image">
+        <img src="{{url_for('static', filename = 'images/pokemon/' + species + '.png')}}" id="pokemon-picture" class="image">
 
-            <li>
-                Pokemon ID: {{id}}
-            </li>
-            <li>
-                Species: {{species}}
-            </li>
-            <li>
-                Type: {{type1}}
-            </li>
-
-            {% if type2 %}
-            <li>
-                Secondary Type: {{type2}}
-            </li>
-            {% endif %}
-
-            <li>
-                Height: {{feet}}' {{inches}}"
-            </li>
-            <li>
-                Weight: {{weight}} lbs
-            </li>
-            <li>
-                Entry: {{entry}}
-            </li>
-            {% endif %}
-        </ul>
+        <div class="pokemon-text">
+            <ul>
+                <li>
+                    Pokemon ID: {{id}}
+                </li>
+                <li>
+                    Species: {{species}}
+                </li>
+                <li>
+                    Type: {{type1}}
+                </li>
+                {% if type2 %}
+                <li>
+                    Secondary Type: {{type2}}
+                </li>
+                {% endif %}
+                <li>
+                    Height: {{feet}}' {{inches}}"
+                </li>
+                <li>
+                    Weight: {{weight}} lbs
+                </li>
+                <li>
+                    Entry: {{entry}}
+                </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 
 {% endblock %}

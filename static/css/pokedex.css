@@ -16,12 +16,10 @@
     width: 100px; /* Fills the parent container */
     height: auto; /* Maintains aspect ratio */
 }
-
 /* Header css */
+
 /* 
-
 |<- Margin ->| [Border [Padding [Content]]] |<- Margin ->|
-
 */
 
 
@@ -45,6 +43,15 @@ body {
     font-size: 30px;
 }
 
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+
+/* form, button & image styling */
 #pokemon-id-form {
     border-radius: 5px;
     border: 2px solid grey;
@@ -52,4 +59,7 @@ body {
 #pokemon-id-button {
     border-radius: 5px;
     border: 2px solid grey;
+}
+#pokemon-picture{
+    width: 250px;
 }
