@@ -1,3 +1,4 @@
+/* contact book css */
 #contact_book, #add_contact, #show_contacts, #delete_contact, #website-headers{
     text-align: center;
 }
@@ -17,26 +18,23 @@ body{
 
 /* Header css */
 
-#main-header-div{
+.header-container{
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-around;
 
 }
 
-#website-header{
+.logo{
     display: flex;
-    margin-left: auto;
-    padding-left: 107px;
+    width: 100px;
+    justify-content: flex-end;
 }
 
-#logo {
-    display: flex;
-    margin-left: auto;
 
-    width: 100px; /* Fills the parent container */
-    height: auto; /* Maintains aspect ratio */
-}
+
+
+
+
 
 
 /* homepage css */

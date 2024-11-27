@@ -16,7 +16,6 @@ def pokemon_db_connection():
 
 
 
-
 @app.route("/")
 def home():
     return render_template("homepage.html")
