@@ -14,7 +14,7 @@ def pokemon_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-def contacts_db_connection():
+def contact_db_connection():
     conn = sqlite3.connect('contacts.db')
     #import datbase as a dictionary
     conn.row_factory = sqlite3.Row
@@ -39,6 +39,9 @@ def projects():
 ###################################################################################
 '''Pokedex'''
 ###################################################################################
+
+
+
 @app.route("/pokedex", methods=["GET", "POST"])
 def pokedex():
     # if statement gets hit when form is submitted
@@ -90,6 +93,9 @@ def pokedex():
 
     # GET - returns blank page as user has not entered pokemon yet
     return render_template('pokedex.html')
+ 
+
+
 ####################################################################################
 """Contact Book Routes:"""
 ####################################################################################
@@ -100,22 +106,14 @@ def contact_home():
 
 @app.route("/contact/show")
 def show_contacts():
-
-    conn = contacts_db_connection()
-
-    contacts = conn.execute('''
-                 SELECT contact_name, contact_number FROM contacts
-                 ''')
-
     return render_template("show_contacts.html", contacts = contacts)
 
 @app.route("/contact/add", methods=["GET", "POST"])
 def add_contact():
-    conn = contacts_db_connection()
+
     # if statement occurs when form submission is hit
     if request.method =="POST":
         # Handle form submission
-
         name = request.form.get("contact-name")
         number = request.form.get("contact-number")
 
@@ -123,19 +121,7 @@ def add_contact():
         if not name or not number:
             return render_template("add_contact.html", error = "Please fill out both fields.")
 
-
-        ## where contact is entered into db
-        conn.execute('''
-                     INSERT INTO contacts (contact_name, contact_number)
-                     VALUES (?, ?)
-                     ''', (name, number))
-        
-
-        conn.commit()
-        conn.close()
-        print(name, number)
-
-
+        contacts.append([name, number])
         return render_template("home_contact.html")
 
     return render_template("add_contact.html")
@@ -143,46 +129,25 @@ def add_contact():
 @app.route("/contact/delete", methods=["GET", "POST"])
 def delete_contact():
 
-    # display contacts on delte
-    conn = contacts_db_connection()
-    contacts = conn.execute('''
-                    SELECT id, contact_name, contact_number FROM contacts
-                    ''').fetchall()
-
     if request.method == "POST":
-        contact_id_input = request.form.get("contact-id")
-
-        if not contact_id_input.isdigit():
+        contact_number_input = request.form.get("contact-number")
+        if not contact_number_input.isdigit():
             return render_template("delete_contact.html", contacts=contacts, error="Enter a number bucko")
-        
-        contact_id = int(contact_id_input)
 
-        #check if contact exists
-        contact_exists = conn.execute('''
-                            SELECT 1 FROM contacts WHERE id = ?
-                                      ''', (contact_id,)).fetchone()
+        contact_number = int(contact_number_input)
 
-        if not contact_exists:
-            return render_template("delete_contact.html", contacts=contacts, error="Contact ID does not exist.")
-        
+        # Checks if contacts list is empty - if empty prompt user no contact to delete
+        if not contacts:
+            return render_template("delete_contact.html", contacts=contacts, error="No contacts you silly goose.")
 
+        # Check if contact_number is within range - if contact number is not within range return page until user enters appropriate number
+        if contact_number < 1 or contact_number > len(contacts):
+            return render_template("delete_contact.html", contacts=contacts, error="Add a contact first!!")
 
-        # delete the contact
-        conn.execute('''
-                    DELETE FROM contacts WHERE id = ?
-                    ''', (contact_id,))
-        conn.commit()
+        contacts.pop(contact_number-1)
 
-        # redisplay contacts once contact has been deleted
-        contacts = conn.execute('''
-                SELECT id, contact_name, contact_number FROM contacts
-                ''').fetchall()
-    
-        #display delete contact.html as the ui
-        return render_template("delete_contact.html", contacts=contacts)
-
-    # homepage of delete contact
     return render_template("delete_contact.html", contacts = contacts)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=80, host="0.0.0.0")

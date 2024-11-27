@@ -12,10 +12,8 @@
     <p id="contacts">
         {% for contact in contacts %}
 
-        <li>
-            ID: {{ contact['id'] }}, Name: {{ contact['contact_name'] }}, Number: {{ contact['contact_number'] }}
-        </li>
-        
+        {{loop.index}}. {{contact[0]}} {{contact[1]}}
+    
         <br><br>
         {% endfor %}
 
@@ -27,7 +25,7 @@
 
     <form action="/contact/delete" method="POST" id="delete_contact">
         <label>Enter Index of Contact: </label>
-        <input name="contact-id" min="1" step="1">
+        <input name="contact-number" min="1" step="1">
 
         <input type="submit">
     </form>
