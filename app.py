@@ -91,7 +91,7 @@ def pokedex():
     # GET - returns blank page as user has not entered pokemon yet
     return render_template('pokedex.html')
 ####################################################################################
-"""Contact Book Routes:"""
+'''Contact Book Routes'''
 ####################################################################################
 #contact book homepage
 @app.route("/contact/home")
@@ -148,8 +148,6 @@ def add_contact():
     # Render the Add Contact form if the request is GET
     return render_template("add_contact.html")
 
-
-
 @app.route("/contact/delete", methods=["GET", "POST"])
 def delete_contact():
     conn = contacts_db_connection()
@@ -198,5 +196,12 @@ def delete_contact():
     # Render the delete contact page if request is GET
     return render_template("delete_contact.html", contacts=contacts)
 
+
+####################################################################################
+'''Java Project'''
+####################################################################################
+app.route("/java_project", methods=["GET"])
+def java_project():
+    return render_template('java_project.html')
 if __name__ == "__main__":
     app.run(debug=True, port=80, host="0.0.0.0")

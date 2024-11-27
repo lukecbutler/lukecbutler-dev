@@ -1,13 +1,11 @@
 <!-- homepage html -->
 
 {% extends "abase.html" %}
-
 {% block title %}{% endblock %}
 {% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
 
 {% block body %}
 
-<h1 id="contact_book">Welcome to Awesomeville</h1>
 <section id="about">
     <h2 id="abouth2">About Me</h2>
     <p>Hi! I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way! </p>
@@ -21,17 +19,25 @@
         <h3><a href="/contact/home">Contact Book Web App</a></h3>
         <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
         <ul class="projects">
-            <li><strong>Flask:</strong> Python web framework for connecting the database to the UI</li>
-            <li><strong>HTML/CSS:</strong> Display and user interface</li>
+            <li><strong>Flask: </strong>Python web framework for connecting the database to the UI</li>
+            <li><strong>HTML/CSS: </strong>Display and user interface</li>
         </ul>
-
+<!--
+        <h3><a href="/java_project">Java Clothing Inventory System</a></h3>
+        <p>A JavaFX project showcasing sound object-oriented programming principles and composition, with a CSV-based save state implementation.</p>
+        <ul class="projects">
+            <li><strong>Java: </strong>Core logic implemented using multiple classes, following object-oriented design principles to construct a robust system.</li>
+            <li><strong>JavaFX: </strong>Intuitive GUI designed with JavaFX, enabling users to create and modify objects dynamically based on input.</li>
+        </ul>
+-->
         <h3><a href="/pokedex">Pokédex Web App</a></h3>
         <p>Pokédex displaying the 151 original Pokémon, combining technologies:</p>
         <ul class="projects">
             <li><strong>HTML/CSS:</strong> Display and user interface</li>
-            <li><strong>SQL:</strong> Database management of Pokémon data</li>
-            <li><strong>Flask:</strong> Python web framework for connecting the database to the UI</li>
+            <li><strong>SQL: </strong>Database management of Pokémon data</li>
+            <li><strong>Flask: </strong>Python web framework for connecting the database to the UI</li>
         </ul>
+
     </div>
 </section>
 
