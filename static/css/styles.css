@@ -1,3 +1,26 @@
+/* Header css */
+#main-header-div{
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+#website-header{
+    display: flex;
+    margin-left: auto;
+    padding-left: 107px;
+}
+
+#logo {
+    display: flex;
+    margin-left: auto;
+
+    width: 100px; /* Fills the parent container */
+    height: auto; /* Maintains aspect ratio */
+}
+/* header css */
+
 /* contact book css */
 #contact_book, #add_contact, #show_contacts, #delete_contact, #website-headers{
     text-align: center;
@@ -16,19 +39,6 @@ body{
 }
 
 
-/* Header css */
-
-.header-container{
-    display: flex;
-    justify-content: space-around;
-
-}
-
-.logo{
-    display: flex;
-    width: 100px;
-    justify-content: flex-end;
-}
 
 
 

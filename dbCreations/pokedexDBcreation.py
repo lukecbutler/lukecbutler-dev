@@ -1,7 +1,7 @@
 import sqlite3
 
 # connect to db & create it if not already made
-connection = sqlite3.connect("Pokedex.db")
+connection = sqlite3.connect("pokedex.db")
 
 # Create cursor to manipulate db
 cursor = connection.cursor()

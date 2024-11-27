@@ -14,6 +14,12 @@ def pokemon_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+def contact_db_connection():
+    conn = sqlite3.connect('contacts.db')
+    #import datbase as a dictionary
+    conn.row_factory = sqlite3.Row
+    return conn
+
 
 
 @app.route("/")

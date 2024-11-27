@@ -7,14 +7,14 @@
     {% block link %}{% endblock %}
 </head>
 <header>
+    <div id="main-header-div">
+        <h1 id="website-header">
+            <a href="/">Luke's Website</a>
+        </h1>
 
-    <div class="header-container">
-            <h1>
-                <a href="/">Luke's Website</a>
-            </h1>
-            <img src="{{url_for('static', filename = 'images/charizard.png')}}" class="logo">
+        <img src="{{url_for('static', filename = 'images/charizard.png')}}" alt="Logo" id="logo">
+
     </div>
-
     <hr>
 </header>
 <body>
