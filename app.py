@@ -78,13 +78,16 @@ def pokedex():
         
         if id == 122:
             species = "Mr. Mime"
+            
         else:
             species = species.capitalize()
+
+        picture_id = species.lower()
 
         conn.close()
         return render_template('pokedex.html', pokemon=pokemon,
                                id = id, species = species, type1 = type1.capitalize(), type2 = type2,
-                                feet = feet, inches = inches, weight = weight, entry = entry
+                                feet = feet, inches = inches, weight = weight, entry = entry, picture_id = picture_id
                                )
 
 
