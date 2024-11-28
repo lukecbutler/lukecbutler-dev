@@ -197,8 +197,10 @@ def delete_contact():
 ####################################################################################
 '''Java Project'''
 ####################################################################################
-app.route("/java_project", methods=["GET"])
+@app.route("/java_project", methods=["GET"])
 def java_project():
     return render_template('java_project.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=80, host="0.0.0.0")
