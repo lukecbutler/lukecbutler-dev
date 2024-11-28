@@ -39,13 +39,11 @@ body {
 
 }
 
-#pokemon-data {
-    font-size: 30px;
-}
 
 .container{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: row;
 }
 

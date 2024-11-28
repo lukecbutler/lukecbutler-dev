@@ -30,11 +30,6 @@ def home():
 '''Projects'''
 ###################################################################################
 
-@app.route("/projects")
-def projects():
-    return render_template("projects.html")
-
-
 
 ###################################################################################
 '''Pokedex'''
@@ -99,16 +94,15 @@ def pokedex():
 #contact book homepage
 @app.route("/contact/home")
 def contact_home():
-    return render_template("home_contact.html")
+    return render_template("contacts/home_contact.html")
 
 @app.route("/contact/show")
 def show_contacts():
 
     conn = contacts_db_connection()
-
     contacts = conn.execute('SELECT id, contact_name, contact_number FROM contacts').fetchall()
 
-    return render_template("show_contacts.html", contacts = contacts)
+    return render_template("contacts/show_contacts.html", contacts = contacts)
 
 @app.route("/contact/add", methods=["GET", "POST"])
 def add_contact():
@@ -122,7 +116,7 @@ def add_contact():
 
         # Validate input
         if not name or not number:
-            return render_template("add_contact.html", error="Please fill out both fields.")
+            return render_template("contacts/add_contact.html", error="Please fill out both fields.")
 
         # Find the current maximum ID in the database
         max_id = conn.execute('SELECT MAX(id) FROM contacts').fetchone()[0]
@@ -146,10 +140,10 @@ def add_contact():
         print(next_id, name, number)
 
         # Redirect to the home contact page after adding a contact
-        return render_template("home_contact.html")
+        return render_template("contacts/home_contact.html")
 
     # Render the Add Contact form if the request is GET
-    return render_template("add_contact.html")
+    return render_template("contacts/add_contact.html")
 
 @app.route("/contact/delete", methods=["GET", "POST"])
 def delete_contact():
@@ -164,17 +158,17 @@ def delete_contact():
 
         # Validate the input
         if not contact_id_input:
-            return render_template("delete_contact.html", contacts=contacts, error="Please enter a Contact ID.")
+            return render_template("contacts/delete_contact.html", contacts=contacts, error="Please enter a Contact ID.")
         
         if not contact_id_input.isdigit():
-            return render_template("delete_contact.html", contacts=contacts, error="Contact ID must be a number.")
+            return render_template("contacts/delete_contact.html", contacts=contacts, error="Contact ID must be a number.")
 
         contact_id = int(contact_id_input)
 
         # Check if the contact exists
         contact_exists = conn.execute('SELECT 1 FROM contacts WHERE id = ?', (contact_id,)).fetchone()
         if not contact_exists:
-            return render_template("delete_contact.html", contacts=contacts, error="Contact ID does not exist.")
+            return render_template("contacts/delete_contact.html", contacts=contacts, error="Contact ID does not exist.")
 
         # Delete the contact
         conn.execute('DELETE FROM contacts WHERE id = ?', (contact_id,))
@@ -194,10 +188,10 @@ def delete_contact():
         contacts = conn.execute('SELECT id, contact_name, contact_number FROM contacts').fetchall()
 
         # Render the updated page
-        return render_template("delete_contact.html", contacts=contacts)
+        return render_template("contacts/delete_contact.html", contacts=contacts)
 
     # Render the delete contact page if request is GET
-    return render_template("delete_contact.html", contacts=contacts)
+    return render_template("contacts/delete_contact.html", contacts=contacts)
 
 
 ####################################################################################
