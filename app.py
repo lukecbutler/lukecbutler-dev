@@ -5,9 +5,8 @@ import sqlite3
 
 app = Flask(__name__)
 
-contacts = []
 
-#connect with database
+#connect with dataebase
 def pokemon_db_connection():
     conn = sqlite3.connect('pokedex.db')
     #import datbase as a dictionary
@@ -19,7 +18,6 @@ def contacts_db_connection():
     #import datbase as a dictionary
     conn.row_factory = sqlite3.Row
     return conn
-
 
 
 @app.route("/")
