@@ -1,31 +1,9 @@
-/* Header css */
-#main-header-div{
-    display: flex;
-    justify-content: space-between;
-
-}
-#website-header{
-    display: flex;
-    margin-left: auto;
-    padding-left: 107px;
-}
-#logo {
-    display: flex;
-    margin-left: auto;
-
-    width: 100px; /* Fills the parent container */
-    height: auto; /* Maintains aspect ratio */
-}
-/* Header css */
+@import url("base.css");
 
 /* 
 |<- Margin ->| [Border [Padding [Content]]] |<- Margin ->|
 */
 
-
-body {
-    background-color: whitesmoke;
-}
 
 #title, #enter-id, #error-div {
     text-align: center;
@@ -38,7 +16,6 @@ body {
     text-shadow: 2px 2px gray;
 
 }
-
 
 .container{
     display: flex;
