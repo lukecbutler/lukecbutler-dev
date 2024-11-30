@@ -2,7 +2,9 @@
 
 from flask import Flask, render_template, request
 import sqlite3
-
+from pokedex import pokedex
+from java_project import java_project
+from contacts import contact_home, add_contact, delete_contact, show_contacts
 app = Flask(__name__)
 
 
