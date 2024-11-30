@@ -1,7 +1,7 @@
 from flask import Flask, render_template
-from routes.java_project import java_project
-from routes.contacts import contact_home, add_contact, delete_contact, show_contacts
-from routes.pokedex import pokedex
+from java_project import java_project
+from contacts import contact_home, add_contact, delete_contact, show_contacts
+from pokedex import pokedex
 
 app = Flask(__name__)
 
