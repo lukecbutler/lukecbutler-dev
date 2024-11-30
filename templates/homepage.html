@@ -2,51 +2,63 @@
 
 {% extends "abase.html" %}
 {% block title %}{% endblock %}
-{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/styles.css')}}">{% endblock %}
+{% block link %}
+<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
+
+{% endblock %}
 
 {% block body %}
 
 <section id="about">
-    <h2 id="abouth2">About Me</h2>
     <p>Hi! I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way! </p>
     <p>Aspiring web and software developer dedicated to creating websites and applications for small to medium-sized businesses.</p>
 </section>
 
 <section id="projects">
     <h2 id="projectsh2">Projects</h2>
-    <div>
+    <a href="/contact/home">
+        <div id="contact-div">
+            <h3 style="color:rgb(7, 160, 211)">Contact Book Web App</h3>
+            <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
+            <ul class="projects">
+                <li><strong>SQLite: </strong>Database that is updated when user adds & deletes contact</li>
+                <li><strong>Flask: </strong>Python web framework for connecting the database to the UI</li>
+                <li><strong>HTML/CSS: </strong>Display and user interface</li>
+            </ul>
+        </div>    
+    </a>
 
-        <h3><a href="/contact/home">Contact Book Web App</a></h3>
-        <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
-        <ul class="projects">
-            <li><strong>Flask: </strong>Python web framework for connecting the database to the UI</li>
-            <li><strong>HTML/CSS: </strong>Display and user interface</li>
-        </ul>
-<!--
-        <h3><a href="/java_project">Java Clothing Inventory System</a></h3>
+    <a href="/java_project">
+    <div id="java-div">
+        <h3 style="color:rgb(7, 160, 211)">Java Clothing Inventory System</h3>
         <p>A JavaFX project showcasing sound object-oriented programming principles and composition, with a CSV-based save state implementation.</p>
         <ul class="projects">
             <li><strong>Java: </strong>Core logic implemented using multiple classes, following object-oriented design principles to construct a robust system.</li>
             <li><strong>JavaFX: </strong>Intuitive GUI designed with JavaFX, enabling users to create and modify objects dynamically based on input.</li>
         </ul>
--->
-        <h3><a href="/pokedex">Pokédex Web App</a></h3>
-        <p>Pokédex displaying the 151 original Pokémon, combining technologies:</p>
-        <ul class="projects">
-            <li><strong>HTML/CSS:</strong> Display and user interface</li>
-            <li><strong>SQL: </strong>Database management of Pokémon data</li>
-            <li><strong>Flask: </strong>Python web framework for connecting the database to the UI</li>
-        </ul>
-
     </div>
+    <a href="/java_project">
+
+    <a href="/pokedex">
+        <div id="pokedex-div">
+            <h3 style="color:rgb(7, 160, 211)">Pokédex Web App</h3>
+            <p>Pokédex displaying the 151 original Pokémon, combining technologies:</p>
+            <ul class="projects">
+                <li><strong>HTML/CSS:</strong>Display and user interface</li>
+                <li><strong>SQLite: </strong>Database management of Pokémon information</li>
+                <li><strong>Flask: </strong>Python web framework for connecting the database to the front end</li>
+            </ul>
+        </div>
+    </a>
 </section>
 
 <section id="skills">
     <h2 id="skillsh2">Skills</h2>
     <ul class="skills">
         <li>Python</li>
+        <li>Flask</li>
         <li>Java</li>
-        <li>SQL</li>
+        <li>SQL / SQLite</li>
         <li>HTML / CSS</li>
     </ul>
 </section>

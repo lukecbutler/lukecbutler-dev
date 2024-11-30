@@ -1,0 +1,61 @@
+@import url("base.css");
+
+/* homepage css */
+
+#projectsh2, #skillsh2, #experienceh2, #contacth2{
+    background-color: skyblue;
+    padding-left: 1vh;
+    padding: 10px;
+    color: black;
+    text-shadow: 1px 1px black;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* project animations */
+#contact-div , #java-div, #pokedex-div {
+    transition: all 0.3s ease-in-out; /* Smooth transition for both hover in and out */
+    margin: 10px;
+    padding: 5px;
+    color: black;
+}
+
+#contact-div:hover, #java-div:hover, #pokedex-div:hover {
+    border-style: solid;
+    border-color: skyblue;
+    margin: 10px;
+    padding: 5px;
+
+    transform: scale(1.01); /* Makes the div grow by 1% */
+    border-radius: 10px; /* Optional: Add a slight rounding effect */
+    cursor: pointer;
+}
+/* project animations */
+
+
+header, section{
+    padding: 20px;
+    margin: 10px;
+}
+
+
+.skills, .contact-info{
+    padding-left: 4vh;
+    font-size: 20px;
+}
+
+.skills li, .contact-info li, .projects li, .experience li{
+    margin: 5px 0;
+    list-style-type: circle;
+}
+
+#about{
+    text-align: center;
+}
+
+body{
+    font-size: 18px;
+}
