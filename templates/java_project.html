@@ -1,12 +1,32 @@
 <!-- contact home page html-->
 {% extends "abase.html" %}
 
-{% block title %}Contact Book{% endblock %}
+{% block title %}Java Inventory System{% endblock %}
 
-{% block link %}<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/java_project.css')}}">{% endblock %}
+{% block link %}<link rel="stylesheet" href="{{ url_for('static', filename='css/java_project.css') }}">
+{% endblock %}
 
 {% block body %}
 
-    <h1>Java Clothing Inventory System</h1>
+    <h1 id="page-title">Java Clothing Inventory System</h1>
 
+    <p id="java-files">
+    <a href="https://github.com/lukecbutler/JavaClothingInventorySystem/tree/main/src/main/java/com/example/classwork">Files on GitHub</a>
+    </p>
+    
+    <div class="container">
+      <iframe 
+      width="1317" 
+      height="741" 
+      src="https://www.youtube.com/embed/05furilTJVM" 
+      title="JavaFX Inventory System" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen>
+      </iframe>
+
+      <img src="{{ url_for('static', filename='images/javaUML.svg') }}" alt="Java Project UML" id="uml">
+    </div>
 {% endblock %}
+
