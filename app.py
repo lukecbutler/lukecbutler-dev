@@ -1,8 +1,10 @@
-from flask import Flask, render_template
-from routes.java_project import java_project
-from routes.contacts import contact_home, add_contact, delete_contact, show_contacts
-from routes.pokedex import pokedex
+# flask app where users can add, view, and delete contacts
 
+from flask import Flask, render_template, request
+import sqlite3
+from pokedex import pokedex
+from java_project import java_project
+from contacts import contact_home, add_contact, delete_contact, show_contacts
 app = Flask(__name__)
 
 
