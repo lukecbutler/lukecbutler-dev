@@ -7,7 +7,6 @@
     padding-left: 1vh;
     padding: 10px;
     color: black;
-    text-shadow: 1px 1px black;
     text-align: center;
 }
 
@@ -18,13 +17,18 @@ a{
 /* project animations */
 #contact-div , #java-div, #pokedex-div {
     transition: all 0.3s ease-in-out; /* Smooth transition for both hover in and out */
-    margin: 10px;
+    margin: 13px;
     padding: 5px;
     color: black;
+
+    border-radius: 10px;
+    box-shadow: 0 0 4px 4px black;
 }
 
 #contact-div:hover, #java-div:hover, #pokedex-div:hover {
-    border-style: solid;
+    box-shadow: 0 0 3px 2px skyblue;
+    border: 2px solid skyblue;
+    border-style: 10px solid;
     border-color: skyblue;
     margin: 10px;
     padding: 5px;
@@ -34,6 +38,7 @@ a{
     cursor: pointer;
 }
 /* project animations */
+
 
 
 header, section{

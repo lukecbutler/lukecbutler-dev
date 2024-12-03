@@ -16,9 +16,7 @@ def show_contacts():
 
     conn = contacts_db_connection()
     contacts = conn.execute('SELECT id, contact_name, contact_number FROM contacts').fetchall()
-
     return render_template("contacts/show_contacts.html", contacts = contacts)
-
 
 def add_contact():
     conn = contacts_db_connection()
@@ -59,7 +57,6 @@ def add_contact():
 
     # Render the Add Contact form if the request is GET
     return render_template("contacts/add_contact.html")
-
 
 def delete_contact():
     conn = contacts_db_connection()
