@@ -57,7 +57,7 @@ header, section{
     list-style-type: circle;
 }
 
-#about{
+.about{
     text-align: center;
 }
 

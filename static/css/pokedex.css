@@ -4,7 +4,6 @@
 |<- Margin ->| [Border [Padding [Content]]] |<- Margin ->|
 */
 
-
 #title, #enter-id, #error-div {
     text-align: center;
     padding-bottom: 5px;
