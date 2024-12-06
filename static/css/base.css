@@ -1,26 +1,64 @@
 /* base.css */
 /* header */
-#main-header-div {
-    display: flex;
-    justify-content: space-between;
+.header {
+    background-color: skyblue;
+    padding: 20px 10px;
 }
 
-#website-header {
-    display: flex;
-    margin-left: auto;
-    padding-left: 107px;
+.header a {
+  transition: all 0.3s ease-in-out;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 35px;
+  border-radius: 4px;
+
 }
 
-#logo {
-    display: flex;
-    margin-left: auto;
-    width: 100px; /* Fills the parent container */
-    height: auto; /* Maintains aspect ratio */
+.header a.logo {
+font-size: 25px;
+font-weight: bold;
+box-shadow: 0 0 4px 4px black;
+background-color: #ddd;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: whitesmoke;
-    margin: 0;
-    padding: 0;
+.header a.logo:hover {
+font-size: 25px;
+font-weight: bold;
+box-shadow: 0 0 4px 4px white;
+}
+
+.header-right-one, .header-right-two, .header-right-three {
+  float: right;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 0 3px 3px black;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: #ddd;
+}
+
+.header-right-one:hover, .header-right-two:hover, .header-right-three:hover {
+transition: all 0.3s ease-in-out; /* Smooth transition for both hover in and out */
+background-color: #ddd;
+color: black;
+box-shadow: 0 0 2px 2px #ddd;
+border-color: white;
+transform: scale(1.01);
+cursor: pointer;
+}
+
+
+
+/* Stack elements when browser width < 600px */
+@media screen and (max-width: 600px) {
+.header a, .header-right-one, .header-right-two, .header-right-three {
+    float: none;
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
