@@ -1,106 +1,95 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 import sqlite3
 
+############################################################
+# Main Contact Page #
+############################################################
 
-def contacts_db_connection():
+def contact_book():
     conn = sqlite3.connect('databases/contacts.db')
-    #import datbase as a dictionary
-    conn.row_factory = sqlite3.Row
-    return conn
+    contacts = conn.execute("""SELECT id, first_name, last_name, phone_number FROM contacts""").fetchall()
+    return render_template("contacts/contact_book.html", contacts = contacts)
 
-#contact book homepage
-def contact_home():
-    return render_template("contacts/home_contact.html")
-
-def show_contacts():
-
-    conn = contacts_db_connection()
-    contacts = conn.execute('SELECT id, contact_name, contact_number FROM contacts').fetchall()
-    return render_template("contacts/show_contacts.html", contacts = contacts)
 
 def add_contact():
-    conn = contacts_db_connection()
-    
-    if request.method == "POST":
+    #connect to db & get form values
+    conn = sqlite3.connect('databases/contacts.db')
+    cursor = conn.cursor()
+    contacts = conn.execute("""SELECT id, first_name, last_name, phone_number FROM contacts""").fetchall()
 
-        # Retrieve name and number from the form
-        name = request.form.get("contact-name")
-        number = request.form.get("contact-number")
+    firstName = request.form.get('contact_first_name')
+    lastName = request.form.get('contact_last_name')
+    phoneNumber = request.form.get('contact_phone_number')
 
-        # Validate input
-        if not name or not number:
-            return render_template("contacts/add_contact.html", error="Please fill out both fields.")
+    # error handling
+    if not firstName or not lastName or not phoneNumber:
+        return render_template('contact_book.html', contacts=contacts, error = "Please fill in all fields.")
 
-        # Find the current maximum ID in the database
-        max_id = conn.execute('SELECT MAX(id) FROM contacts').fetchone()[0]
+    if not phoneNumber.isdigit():
+        return render_template('contact_book.html', contacts=contacts, error="Phone number must contain only numbers.")
 
-        # If no contacts exist yet, start with ID 1
-        if max_id is None:
-            next_id = 1
-        else:
-            next_id = max_id + 1
 
-        # Insert the new contact into the database
-        conn.execute('''
-            INSERT INTO contacts (id, contact_name, contact_number)
-            VALUES (?, ?, ?)
-        ''', (next_id, name, number))
+    #commit sql query with form values
+    cursor.execute("""INSERT INTO contacts (first_name, last_name, phone_number)
+                    VALUES(?, ?, ?)""", (firstName, lastName, phoneNumber,))
+    conn.commit()
+    contacts = conn.execute('SELECT id, first_name, last_name, phone_number FROM contacts').fetchall()
+    conn.close()
+    return redirect(url_for("contact_book"))
 
-        # Commit changes and close the connection
-        conn.commit()
-        conn.close()
-
-        print(next_id, name, number)
-
-        # Redirect to the home contact page after adding a contact
-        return render_template("contacts/home_contact.html")
-
-    # Render the Add Contact form if the request is GET
-    return render_template("contacts/add_contact.html")
 
 def delete_contact():
-    conn = contacts_db_connection()
+    conn = sqlite3.connect('databases/contacts.db')
+    contact_id = request.form.get("contact_id")
+    conn.execute('DELETE FROM contacts WHERE id = ?', (contact_id,))
+    conn.commit()
 
-    # Fetch all contacts for display
-    contacts = conn.execute('SELECT id, contact_name, contact_number FROM contacts').fetchall()
+    return redirect(url_for("contact_book"))
 
-    if request.method == "POST":
-        # Retrieve the contact ID from the form
-        contact_id_input = request.form.get("contact-id")
 
-        # Validate the input
-        if not contact_id_input:
-            return render_template("contacts/delete_contact.html", contacts=contacts, error="Please enter a Contact ID.")
-        
-        if not contact_id_input.isdigit():
-            return render_template("contacts/delete_contact.html", contacts=contacts, error="Contact ID must be a number.")
+def update_contact():
+    conn = sqlite3.connect('databases/contacts.db')
+    cursor = conn.cursor()
+    contact_id = request.form.get("contact_id")
+    # Fetch current contact details
+    contact = cursor.execute("SELECT first_name, last_name, phone_number FROM contacts WHERE id = ?", (contact_id,)).fetchone()
+    return render_template("contacts/update_contact.html", contact=contact, contact_id=contact_id)
 
-        contact_id = int(contact_id_input)
 
-        # Check if the contact exists
-        contact_exists = conn.execute('SELECT 1 FROM contacts WHERE id = ?', (contact_id,)).fetchone()
-        if not contact_exists:
-            return render_template("contacts/delete_contact.html", contacts=contacts, error="Contact ID does not exist.")
+def save_contact():
+    newFirstName = request.form.get('new_contact_first_name')
+    newLastName = request.form.get('new_contact_last_name')
+    newPhoneNumber = request.form.get('new_contact_phone_number')
+    contact_id = request.form.get('contact_id')
 
-        # Delete the contact
-        conn.execute('DELETE FROM contacts WHERE id = ?', (contact_id,))
-        conn.commit()
+    conn = sqlite3.connect('databases/contacts.db')
+    cursor = conn.cursor()
 
-        # Reassign IDs to keep them sequential
-        all_contacts = conn.execute('SELECT id FROM contacts ORDER BY id').fetchall()
-        index = 1 # reorder contacts starting at 1
-        for contact in all_contacts:
-            current_id = contact['id'] # Grab current ID from the contact
-            conn.execute('UPDATE contacts SET id = ? WHERE id = ?', (index, current_id))
-            index += 1 # Increment the index for the next contact        
-        
-        conn.commit()
+    if not newFirstName or not newLastName or not newPhoneNumber:
+        return render_template(
+            'update_contact.html',
+            contact=(newFirstName, newLastName, newPhoneNumber),
+            contact_id=contact_id,
+            error="Please fill in all fields."
+        )
 
-        # Fetch updated contacts list after deletion and reindexing
-        contacts = conn.execute('SELECT id, contact_name, contact_number FROM contacts').fetchall()
+    if not newPhoneNumber.isdigit():
+        return render_template(
+            'update_contact.html',
+            contact=(newFirstName, newLastName, newPhoneNumber),
+            contact_id=contact_id,
+            error="Phone number must contain only numbers."
+        )
 
-        # Render the updated page
-        return render_template("contacts/delete_contact.html", contacts=contacts)
 
-    # Render the delete contact page if request is GET
-    return render_template("contacts/delete_contact.html", contacts=contacts)
+    # Update the database
+    cursor.execute("""
+        UPDATE contacts
+        SET first_name = ?, last_name = ?, phone_number = ?
+        WHERE id = ?
+    """, (newFirstName, newLastName, newPhoneNumber, contact_id))
+    conn.commit()
+
+
+    # Render the updated contact_book.html
+    return redirect(url_for("contact_book"))

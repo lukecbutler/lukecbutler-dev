@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from java_project import java_project
-from contacts import contact_home, add_contact, delete_contact, show_contacts
+from contacts import contact_book, add_contact, delete_contact, update_contact, save_contact
 from pokedex import pokedex
 
 app = Flask(__name__)
@@ -15,10 +15,11 @@ def home():
 app.add_url_rule('/pokedex', view_func=pokedex, methods=["GET", "POST"])
 
 # contact book
-app.add_url_rule('/contact/home', view_func=contact_home)
-app.add_url_rule('/contact/add', view_func=add_contact, methods=["GET", "POST"])
-app.add_url_rule('/contact/delete', view_func=delete_contact, methods=["GET", "POST"])
-app.add_url_rule('/contact/show', view_func=show_contacts)
+app.add_url_rule('/contact_book', view_func=contact_book)
+app.add_url_rule('/add_contact', view_func=add_contact, methods=["GET", "POST"])
+app.add_url_rule('/delete_contact', view_func=delete_contact, methods=["GET", "POST"])
+app.add_url_rule('/update_contact', view_func=update_contact, methods=["GET", "POST"])
+app.add_url_rule('/save_contact', view_func=save_contact, methods=["GET", "POST"])
 
 # java project
 app.add_url_rule('/java_project', view_func=java_project)
