@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect
+from flask import render_template, request
 import sqlite3
 
 
