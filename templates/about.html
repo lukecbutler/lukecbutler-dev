@@ -1,19 +1,26 @@
-<!-- homepage html -->
-
 {% extends "abase.html" %}
-{% block title %}{% endblock %}
+{% block title %}About Me{% endblock %}
 {% block link %}
-<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
 {% endblock %}
 
 {% block body %}
 
-
-<section class="about">
-    <h2>About Me</h2>
-    <p>Hi! I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way! </p>
-    <p>Aspiring web and software developer dedicated to creating websites and applications for small to medium-sized businesses.</p>
-</section>
-
+<div class="container my-5">
+    <!-- About Me Section -->
+    <section class="about bg-light p-4 rounded shadow-sm">
+        <div class="row align-items-center">
+            <div class="text-center">
+                <h2 class="bg-lightskyblue text-white p-2 rounded mb-4">About Me</h2>
+                <p class="text-muted">
+                    Hi! My name is Luke Butler, and I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way!
+                </p>
+                <p class="text-muted">
+                    Aspiring web and software developer dedicated to creating websites and applications for small to medium-sized businesses.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
 
 {% endblock %}

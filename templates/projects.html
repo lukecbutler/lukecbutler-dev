@@ -1,49 +1,74 @@
-<!-- homepage html -->
-
 {% extends "abase.html" %}
 {% block title %}Projects{% endblock %}
 {% block link %}
-<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+<style>
+    :root {
+        --bs-skyblue: lightskyblue; /* Define skyblue color */
+    }
+
+    .bg-lightskyblue {
+        background-color: var(--bs-skyblue) !important;
+    }
+
+    .text-white {
+        color: white !important;
+    }
+
+    .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add animation on hover */
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px); /* Lift the card on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Emphasize shadow on hover */
+    }
+</style>
 {% endblock %}
 
 {% block body %}
 
+<div class="container my-5">
+    <!-- Projects Section -->
+    <section id="projects" class="p-4 bg-light rounded shadow-sm">
+        <h2 id="projectsh2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Projects</h2>
 
-<section id="projects">
-    <h2 id="projectsh2">Projects</h2>
-    <a href="/projects/contact_book" style="text-decoration: none;">
-        <div id="contact-div">
-            <h3 style="color:rgb(7, 160, 211)">Contact Book Web App</h3>
+        <!-- Contact Book Project -->
+        <div class="project-card mb-4 p-4 border rounded bg-body-tertiary">
+            <h3 class="text-skyblue">Contact Book Web App</h3>
             <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
-            <ul class="projects">
-                <li><strong>SQLite: </strong>Database that is updated when user adds & deletes contact</li>
-                <li><strong>Flask: </strong>Python web framework for connecting the database to the front end</li>
-                <li><strong>HTML/CSS Bootstrap: </strong>Display and user interface</li>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted"><strong>SQLite: </strong>Database updated when users add & delete contacts</li>
+                <li class="list-group-item border-0 text-muted"><strong>Flask: </strong>Python web framework for backend logic</li>
+                <li class="list-group-item border-0 text-muted"><strong>HTML/CSS Bootstrap: </strong>Frontend user interface</li>
             </ul>
-        </div>    
-    </a>
-
-    <a href="/projects/java_project" style="text-decoration: none;">
-    <div id="java-div">
-        <h3 style="color:rgb(7, 160, 211)">Java Clothing Inventory System</h3>
-        <p>A JavaFX project showcasing sound object-oriented programming principles and composition, with a CSV-based save state implementation.</p>
-        <ul class="projects">
-            <li><strong>Java: </strong>Core logic implemented using multiple classes, following object-oriented design principles to construct a robust system.</li>
-            <li><strong>JavaFX: </strong>Intuitive GUI designed with JavaFX, enabling users to create and modify objects dynamically based on input.</li>
-        </ul>
-    </div>
-    <a href="/java_project">
-
-    <a href="/projects/pokedex" style="text-decoration: none;">
-        <div id="pokedex-div">
-            <h3 style="color:rgb(7, 160, 211)">Pokédex Web App</h3>
-            <p>Pokédex displaying the 151 original Pokémon, combining technologies:</p>
-            <ul class="projects">
-                <li><strong>HTML/CSS:</strong>Display and user interface</li>
-                <li><strong>SQLite: </strong>Database management of Pokémon information</li>
-                <li><strong>Flask: </strong>Python web framework for connecting the database to the front end</li>
-            </ul>
+            <a href="/projects/contact_book" class="btn btn-primary mt-3">View Project</a>
         </div>
-    </a>
-</section>
+
+        <!-- Java Project -->
+        <div class="project-card mb-4 p-4 border rounded bg-body-tertiary">
+            <h3 class="text-skyblue">Java Clothing Inventory System</h3>
+            <p>A JavaFX project showcasing sound object-oriented programming principles and composition:</p>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted"><strong>Java: </strong>Core logic implemented using multiple classes</li>
+                <li class="list-group-item border-0 text-muted"><strong>JavaFX: </strong>Intuitive GUI enabling dynamic object creation and modification</li>
+                <li class="list-group-item border-0 text-muted"><strong>CSV: </strong>Save state implementation</li>
+            </ul>
+            <a href="/projects/java_project" class="btn btn-primary mt-3">View Project</a>
+        </div>
+
+        <!-- Pokédex Project -->
+        <div class="project-card mb-4 p-4 border rounded bg-body-tertiary">
+            <h3 class="text-skyblue">Pokédex Web App</h3>
+            <p>A Pokédex displaying the 151 original Pokémon, combining multiple technologies:</p>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted"><strong>HTML/CSS: </strong>Frontend display and UI</li>
+                <li class="list-group-item border-0 text-muted"><strong>SQLite: </strong>Database management of Pokémon information</li>
+                <li class="list-group-item border-0 text-muted"><strong>Flask: </strong>Python web framework for backend logic</li>
+            </ul>
+            <a href="/projects/pokedex" class="btn btn-primary mt-3">View Project</a>
+        </div>
+    </section>
+</div>
+
 {% endblock %}

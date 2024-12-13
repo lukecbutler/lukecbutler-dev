@@ -1,35 +1,36 @@
-
 {% extends "abase.html" %}
-{% block title %}{% endblock %}
+{% block title %}Skills & Experience{% endblock %}
 {% block link %}
-<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
 {% endblock %}
 
 {% block body %}
 
-<section id="skills">
-    <h2 id="skillsh2">Skills</h2>
-    <ul class="skills">
-        <li>Python</li>
-        <li>Flask</li>
-        <li>Java</li>
-        <li>SQL / SQLite</li>
-        <li>HTML / CSS</li>
-    </ul>
-</section>
+<div class="container my-5">
+    <!-- Skills Section -->
+    <section id="skills" class="mb-5 p-4 bg-light rounded shadow-sm">
+        <h2 id="skillsh2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Skills</h2>
+        <ul class="list-group">
+            <li class="list-group-item border-0 text-muted">Python</li>
+            <li class="list-group-item border-0 text-muted">Flask</li>
+            <li class="list-group-item border-0 text-muted">Java</li>
+            <li class="list-group-item border-0 text-muted">SQL / SQLite</li>
+            <li class="list-group-item border-0 text-muted">HTML / CSS</li>
+        </ul>
+    </section>
 
-<section id="experience">
-    <h2 id="experienceh2">Experience</h2>
-    <p>Relevant coursework:</p>
-    <ul class="experience">
-        <li>Java Object-Oriented Programming</li>
-        <li>Python Programming</li>
-        <li>SQL Database Programming</li>
-        <li>Computer Networking</li>
-    </ul>
-    <p>Research Assistant at UNCW</p>
-
-</section>
-
+    <!-- Experience Section -->
+    <section id="experience" class="p-4 bg-light rounded shadow-sm">
+        <h2 id="experienceh2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Experience</h2>
+        <p class="text-muted">Relevant coursework:</p>
+        <ul class="list-group mb-3">
+            <li class="list-group-item border-0 text-muted">Java Object-Oriented Programming</li>
+            <li class="list-group-item border-0 text-muted">Python Programming</li>
+            <li class="list-group-item border-0 text-muted">SQL Database Programming</li>
+            <li class="list-group-item border-0 text-muted">Computer Networking</li>
+        </ul>
+        <p class="text-muted">Research Assistant at UNCW</p>
+    </section>
+</div>
 
 {% endblock %}
