@@ -1,0 +1,44 @@
+<!-- homepage html -->
+
+{% extends "abase.html" %}
+{% block title %}{% endblock %}
+{% block link %}
+<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
+{% endblock %}
+
+{% block body %}
+
+
+<section class="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way! </p>
+    <p>Aspiring web and software developer dedicated to creating websites and applications for small to medium-sized businesses.</p>
+</section>
+
+
+<section id="skills">
+    <h2 id="skillsh2">Skills</h2>
+    <ul class="skills">
+        <li>Python</li>
+        <li>Flask</li>
+        <li>Java</li>
+        <li>SQL / SQLite</li>
+        <li>HTML / CSS</li>
+    </ul>
+</section>
+
+<section id="experience">
+    <h2 id="experienceh2">Experience</h2>
+    <p>Relevant coursework:</p>
+    <ul class="experience">
+        <li>Java Object-Oriented Programming</li>
+        <li>Python Programming</li>
+        <li>SQL Database Programming</li>
+        <li>Computer Networking</li>
+    </ul>
+    <p>Research Assistant at UNCW</p>
+
+</section>\
+
+
+{% endblock %}

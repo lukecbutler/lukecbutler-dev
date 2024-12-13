@@ -9,7 +9,7 @@
         <h1 class="mb-3 mt-3 text-center ">Contact Book</h1>
 
 
-        <form method="POST" action="/add_contact" class="mb-4 form-control" id="contact">
+        <form method="POST" action="/projects/add_contact" class="mb-4 form-control" id="contact">
             <div>
                 <label>First Name:</label>
                 <div class="mb-3">
@@ -50,12 +50,12 @@
                     {{ '(' + contact[3][:3] + ') ' + contact[3][3:6] + '-' + contact[3][6:] }}
                 </td>
                 <td class="text-center align-middle">
-                    <form method="POST" action="/update_contact"  style="display: inline-block;">
+                    <form method="POST" action="/projects/update_contact"  style="display: inline-block;">
                         <input type="hidden" name="contact_id" value="{{ contact[0] }}">
                         <button type= "submit" class="btn btn-warning mt-3 mb-4">Update Contact</button>
                     </form>
 
-                    <form method="POST" action="/delete_contact"  style="display: inline-block;">
+                    <form method="POST" action="/projects/delete_contact"  style="display: inline-block;">
                         <input type="hidden" name="contact_id" value="{{ contact[0] }}">
                         <button type= "submit" class="btn btn-danger mt-2 mb-3">Delete Contact</button>
                     </form>

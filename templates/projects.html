@@ -1,23 +1,17 @@
 <!-- homepage html -->
 
 {% extends "abase.html" %}
-{% block title %}{% endblock %}
+{% block title %}Projects{% endblock %}
 {% block link %}
 <link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
 {% endblock %}
 
 {% block body %}
-<body>
-    
 
-<section class="about">
-    <p>Hi! I'm a graduate student at UNCW, always up for learning something new, diving into a good challenge, and drinking way too much coffee along the way! </p>
-    <p>Aspiring web and software developer dedicated to creating websites and applications for small to medium-sized businesses.</p>
-</section>
 
 <section id="projects">
     <h2 id="projectsh2">Projects</h2>
-    <a href="/contact_book" style="text-decoration: none;">
+    <a href="/projects/contact_book" style="text-decoration: none;">
         <div id="contact-div">
             <h3 style="color:rgb(7, 160, 211)">Contact Book Web App</h3>
             <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
@@ -29,7 +23,7 @@
         </div>    
     </a>
 
-    <a href="/java_project" style="text-decoration: none;">
+    <a href="/projects/java_project" style="text-decoration: none;">
     <div id="java-div">
         <h3 style="color:rgb(7, 160, 211)">Java Clothing Inventory System</h3>
         <p>A JavaFX project showcasing sound object-oriented programming principles and composition, with a CSV-based save state implementation.</p>
@@ -40,7 +34,7 @@
     </div>
     <a href="/java_project">
 
-    <a href="/pokedex" style="text-decoration: none;">
+    <a href="/projects/pokedex" style="text-decoration: none;">
         <div id="pokedex-div">
             <h3 style="color:rgb(7, 160, 211)">Pokédex Web App</h3>
             <p>Pokédex displaying the 151 original Pokémon, combining technologies:</p>
@@ -52,39 +46,4 @@
         </div>
     </a>
 </section>
-
-<section id="skills">
-    <h2 id="skillsh2">Skills</h2>
-    <ul class="skills">
-        <li>Python</li>
-        <li>Flask</li>
-        <li>Java</li>
-        <li>SQL / SQLite</li>
-        <li>HTML / CSS</li>
-    </ul>
-</section>
-
-<section id="experience">
-    <h2 id="experienceh2">Experience</h2>
-    <p>Relevant coursework:</p>
-    <ul class="experience">
-        <li>Java Object-Oriented Programming</li>
-        <li>Python Programming</li>
-        <li>SQL Database Programming</li>
-        <li>Computer Networking</li>
-    </ul>
-    <p>Research Assistant at UNCW</p>
-
-</section>
-
-<section>
-    <h2 id="contacth2">Contact Information</h2>
-    <ul class="contact-info">
-        <li><strong>Email:</strong> lcb9606@uncw.edu</li>
-        <li><a href="https://github.com/lukecbutler">GitHub</a></li>
-    </ul>
-</section>
-</body>
-
-
 {% endblock %}

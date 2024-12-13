@@ -1,0 +1,18 @@
+<!-- homepage html -->
+
+{% extends "abase.html" %}
+{% block title %}Projects{% endblock %}
+{% block link %}
+<link rel = "stylesheet" href = "{{url_for('static', filename = 'css/homepage.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<section>
+    <h2 id="contacth2">Contact Information</h2>
+    <ul class="contact-info">
+        <li><strong>Email:</strong> lcb9606@uncw.edu</li>
+        <li><a href="https://github.com/lukecbutler">GitHub</a></li>
+    </ul>
+</section>
+{% endblock %}
