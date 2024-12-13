@@ -8,16 +8,25 @@ app = Flask(__name__)
 
 #homepage
 @app.route("/")
-def home():
+def about():
     return render_template("about.html")
+
 
 @app.route("/projects")
 def projects():
     return render_template("projects.html")
 
+
 @app.route("/contact_info")
 def contact():
     return render_template('contact_info.html')
+
+
+@app.route("/skills_and_experience")
+def skills_and_experience():
+    return render_template('skills_and_experience.html')
+
+
 
 # pokedex
 app.add_url_rule('/projects/pokedex', view_func=pokedex, methods=["GET", "POST"])

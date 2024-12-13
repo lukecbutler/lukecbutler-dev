@@ -31,18 +31,18 @@
 
 <body>
 
-
+    <!-- Header - url_for redirects to function names, not app.routes */ -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
             <div class="container-fluid">
-                <a class="navbar-brand">Portfolio</a>
+                <a class="navbar-brand" href="{{ url_for('about') }}">Portfolio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item {% if request.endpoint == 'home' %}active{% endif %}">
-                            <a class="nav-link" href="/">About Me</a>
+                        <li class="nav-item {% if request.endpoint == 'skills_and_experience' %}active{% endif %}">
+                            <a class="nav-link" href="{{ url_for('skills_and_experience') }}">Skills & Experience</a>
                         </li>
                         <li class="nav-item {% if request.endpoint in ['projects', 'java_project', 'pokedex', 'contact_book', 'update_contact'] %}active{% endif %}">
                             <a class="nav-link" href="{{ url_for('projects') }}">Projects</a>
@@ -55,6 +55,7 @@
             </div>
         </nav>
     </header>
+    
     
     {% block body %}
 
