@@ -1,0 +1,34 @@
+{% extends "abase.html" %}
+{% block title %} Update Contact {% endblock %}
+
+{% block body %}
+<body class="bg-light">
+    <div class="fluid-container text-center">
+        <h1 class="mb-3 mt-3 text-center ">Update Item</h1>
+        <h2 class="mb-3 mt-3 text-center ">{{ error }}</h2>
+        <form action="/projects/save_contact" method="POST" class="form-control mb-4"  id="contact">
+            
+            
+
+            <label>First Name:</label>
+            <div class="mb-3">
+                <input type="text" name="new_contact_first_name" value="{{ contact[0] }}" class="form-control mb" placeholder="First Name" required>
+            </div>
+
+            <label>Last Name:</label>
+            <div class="mb-3">
+                <input type="text" name="new_contact_last_name" value="{{ contact[1] }}" class="form-control" placeholder="Last Name" required>
+            </div>
+
+            <label>Phone Number:</label>
+            <div class="mb-3">
+                <input type="text" name="new_contact_phone_number" value="{{ contact[2] }}" class="form-control" placeholder="Phone Number" required>
+            </div>
+
+            <input type="hidden" name="contact_id" value="{{ contact_id }}">
+            <button type="submit" name="save_contact" class="form-control btn btn-primary">Update Contact</button>
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

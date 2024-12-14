@@ -1,25 +1,79 @@
 /* base.css */
-#main-header-div {
-    display: flex;
-    justify-content: space-between;
+
+/* Root Variables */
+:root {
+    --bs-skyblue: lightskyblue; /* Define custom skyblue color */
 }
 
-#website-header {
-    display: flex;
-    margin-left: auto;
-    padding-left: 107px;
-}
-
-#logo {
-    display: flex;
-    margin-left: auto;
-    width: 100px; /* Fills the parent container */
-    height: auto; /* Maintains aspect ratio */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: whitesmoke;
+/* Base Styles */
+body, html {
     margin: 0;
     padding: 0;
+}
+
+.text-white {
+    color: white !important; /* Ensure text is readable on skyblue background */
+}
+
+.bg-lightskyblue {
+    background-color: var(--bs-skyblue) !important; /* Use custom skyblue color */
+}
+
+/* Navbar Styles */
+.navbar-nav .nav-item.active {
+    background-color: var(--bs-skyblue); /* Highlight color for active menu item */
+    color: white; /* Text color for better contrast */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: white; /* Ensure link text is white */
+}
+
+/* Contact Section */
+#contact {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 20px auto; /* Center and add bottom margin */
+    max-width: 300px;
+}
+
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: var(--bs-skyblue);
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Pokémon Section */
+.pokemon-title {
+    color: var(--bs-skyblue); /* Use skyblue for title */
+}
+
+.pokemon-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.pokemon-details li {
+    margin-bottom: 10px;
+}
+
+/* Project Cards */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add animation on hover */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Emphasize shadow */
 }

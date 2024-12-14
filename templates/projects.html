@@ -1,0 +1,56 @@
+{% extends "abase.html" %}
+{% block title %}Projects{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <!-- Projects Section -->
+    <section id="projects" class="p-4 bg-light rounded shadow-sm">
+        <h2 id="projectsh2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Projects</h2>
+
+        <!-- Contact Book Project -->
+        <div class="project-card mb-4 p-4 border rounded bg-body-tertiary">
+            <h3 class="text-skyblue">Contact Book Web App</h3>
+            <p>Contact Book featuring add, delete, and show contacts. Built with:</p>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted"><strong>SQLite: </strong>Database updated when users add & delete contacts</li>
+                <li class="list-group-item border-0 text-muted"><strong>Flask: </strong>Python web framework for backend logic</li>
+                <li class="list-group-item border-0 text-muted"><strong>HTML/CSS Bootstrap: </strong>Frontend user interface</li>
+            </ul>
+            <a href="/projects/contact_book" class="btn btn-primary mt-3">View Project</a>
+        </div>
+
+        <!-- Java Project -->
+        <div class="project-card mb-4 p-4 border rounded bg-body-tertiary">
+            <h3 class="text-skyblue">Java Clothing Inventory System</h3>
+            <p>A JavaFX project showcasing sound object-oriented programming principles and composition:</p>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted"><strong>Java: </strong>Core logic implemented using multiple classes</li>
+                <li class="list-group-item border-0 text-muted"><strong>JavaFX: </strong>Intuitive GUI enabling dynamic object creation and modification</li>
+                <li class="list-group-item border-0 text-muted"><strong>CSV: </strong>Save state implementation</li>
+            </ul>
+            <a href="/projects/java_project" class="btn btn-primary mt-3">View Project</a>
+        </div>
+
+        <!-- Pokédex Project -->
+        <div class="project-card mb-4 p-4 border rounded bg-body-tertiary">
+            <h3 class="text-skyblue">Pokédex Web App</h3>
+            <p>A Pokédex displaying the 151 original Pokémon, combining multiple technologies:</p>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted"><strong>HTML/CSS: </strong>Frontend display and UI</li>
+                <li class="list-group-item border-0 text-muted"><strong>SQLite: </strong>Database management of Pokémon information</li>
+                <li class="list-group-item border-0 text-muted"><strong>Flask: </strong>Python web framework for backend logic</li>
+            </ul>
+            <a href="/projects/pokedex" class="btn btn-primary mt-3">View Project</a>
+        </div>
+    </section>
+    <div class="d-flex justify-content-end">
+
+        <a class="mt-3" href="{{ url_for('skills_and_experience') }}"><button class="btn btn-primary">Skills & Experince -></button></a>
+    </div>
+</div>
+
+{% endblock %}

@@ -10,8 +10,9 @@ cursor = connection.cursor()
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS contacts(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    contact_name TEXT, 
-    contact_number INT
+    first_name TEXT, 
+    last_name TEXT, 
+    phone_number TEXT
 )
 ''')
 

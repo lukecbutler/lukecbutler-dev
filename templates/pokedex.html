@@ -1,63 +1,64 @@
-<!-- pokedex html -->
 {% extends "abase.html" %}
 
-{% block title %}Pokedex{% endblock %}
-{% block link %}<link rel="stylesheet" href="{{url_for('static', filename = 'css/pokedex.css')}}">{% endblock %}
+{% block title %}Pokédex{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
 
 {% block body %}
+<div class="container">
 
-
-
-    <!-- id title is refferenced in the css file with a #-->
-    <h1 id = "title">
-        Original 151 Pokédex
-    </h1>
-
-    <form action="/pokedex" method="POST" id="id-form">
-        <div id="enter-id">
-            <label>Enter Pokemon ID:</label>
-            <input type="text" name="pokemon-id" id="pokemon-id-form" placeholder="ie. 25 for Pikachu">
-            <button type="submit" id="pokemon-id-button">Get your Pokemon!</button>
-        </div>
-    </form>
-
-    <div id="error-div">
-        {{error}}
-    </div>
-
-    <div class="container">
-        {% if pokemon %}
-
-        <img src="{{url_for('static', filename = 'images/pokemon/' + picture_id + '.png')}}" id="pokemon-picture" class="image">
-
-        <div class="pokemon-text">
-            <ul>
-                <li>
-                    Pokemon ID: {{id}}
-                </li>
-                <li>
-                    Species: {{species}}
-                </li>
-                <li>
-                    Type: {{type1}}
-                </li>
-                {% if type2 %}
-                <li>
-                    Secondary Type: {{type2}}
-                </li>
-                {% endif %}
-                <li>
-                    Height: {{feet}}' {{inches}}"
-                </li>
-                <li>
-                    Weight: {{weight}} lbs
-                </li>
-                <li>
-                    Entry: {{entry}}
-                </li>
-                {% endif %}
-            </ul>
+    <!-- Pokémon Card -->
+    {% if pokemon %}
+    <div class="card-container">
+        <div class="pokemon-card card">
+            <div class="card-header text-center">
+                {{ species }}
+            </div>
+            <img
+                style="height: auto; width: 45vh;"
+                src="{{ url_for('static', filename='images/pokemon/' + picture_id + '.png') }}" 
+                alt="Pokémon Image"
+                class="card-img-top mx-auto d-block">
+            <div class="card-body">
+                <ul class="pokemon-details">
+                    <li><strong>Pokémon ID:</strong> {{ id }}</li>
+                    <li><strong>Type:</strong> {{ type1 }}{% if type2 %}, {{ type2 }}{% endif %}</li>
+                    <li><strong>Height:</strong> {{ feet }}' {{ inches }}"</li>
+                    <li><strong>Weight:</strong> {{ weight }} lbs</li>
+                    <li><strong>Entry:</strong> {{ entry }}</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                #{{ id }} in the Pokédex
+            </div>
         </div>
     </div>
 
+
+    {% elif error %}
+    <!-- Error Message -->
+    <div class="alert alert-danger text-center">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <!-- Input Form -->
+    <div class="form-container text-center">
+        <form action="/projects/pokedex" method="POST" class="mx-auto">
+            <div class="mb-3">
+                <label for="pokemon-id-form" class="form-label">Enter Pokémon ID:</label>
+                <input 
+                    type="text" 
+                    name="pokemon-id" 
+                    id="pokemon-id-form" 
+                    class="form-control" 
+                    placeholder="e.g., enter '25' for Pikachu" 
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mb-4">Get Your Pokémon!</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

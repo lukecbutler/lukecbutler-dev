@@ -1,0 +1,39 @@
+{% extends "abase.html" %}
+{% block title %}Skills & Experience{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <!-- Skills Section -->
+    <section id="skills" class="mb-5 p-4 bg-light rounded shadow-sm">
+        <h2 id="skillsh2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Skills</h2>
+        <ul class="list-group">
+            <li class="list-group-item border-0 text-muted">Python</li>
+            <li class="list-group-item border-0 text-muted">Flask</li>
+            <li class="list-group-item border-0 text-muted">Java</li>
+            <li class="list-group-item border-0 text-muted">SQL / SQLite</li>
+            <li class="list-group-item border-0 text-muted">HTML / CSS</li>
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="p-4 bg-light rounded shadow-sm">
+        <h2 id="experienceh2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Experience</h2>
+        <p class="text-muted">Relevant coursework:</p>
+        <ul class="list-group mb-3">
+            <li class="list-group-item border-0 text-muted">Java Object-Oriented Programming</li>
+            <li class="list-group-item border-0 text-muted">Python Programming</li>
+            <li class="list-group-item border-0 text-muted">SQL Database Programming</li>
+            <li class="list-group-item border-0 text-muted">Computer Networking</li>
+        </ul>
+        <p class="text-muted">Research Assistant at UNCW</p>
+    </section>
+    <div class="d-flex justify-content-end">
+        <a class="mt-3" href="{{ url_for('contact') }}"><button class="btn btn-primary">Contact me -></button></a>
+    </div>
+</div>
+
+{% endblock %}

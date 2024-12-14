@@ -1,0 +1,71 @@
+<!-- homepage html -->
+
+{% extends "abase.html" %}
+{% block title %} Contact Book {% endblock %}
+
+{% block body %}
+<body class="bg-light">
+    <div class="fluid-container text-center">   
+        <h1 class="mb-3 mt-3 text-center ">Contact Book</h1>
+
+
+        <form method="POST" action="/projects/add_contact" class="mb-4 form-control" id="contact">
+            <div>
+                <label>First Name:</label>
+                <div class="mb-3">
+                    <input type="text" name="contact_first_name" class="form-control" placeholder="First Name" required>
+                </div>
+
+                <label>Last Name:</label>
+                <div class="mb-3">
+                    <input type="text" name="contact_last_name" class="form-control" placeholder="Last Name" required>
+                </div>
+                
+                <label>Phone Number:</label>
+                <div>
+                    <input type="text" name="contact_phone_number" class="form-control" placeholder="Phone Number" required>
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Add Contact</button>
+        </form>
+
+    <h2>{{ error }}</h2>
+    <table class="table mt-2 table-hover table-striped table-sm">
+        <thead>
+            <tr>
+                <th class="fs-6 align-middle">Name</th>
+                <th class="fs-6 align-middle">Phone Number</th>
+                <th class="fs-6 align-middle">Update / Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Display all contacts in db-->
+            {% for contact in contacts %}
+            <tr style="list-style-type: none;">
+                <!-- [('Luke', 'Butler', 920), ('Kimerson', 'Smith', 828)]-->
+                <td class="text-center align-middle fs-3" style="width: 25%;">{{contact[1]}} {{contact[2]}}</td> 
+                <td class="text-center align-middle fs-3" style="width: 45%;">
+                    {{ '(' + contact[3][:3] + ') ' + contact[3][3:6] + '-' + contact[3][6:] }}
+                </td>
+                <td class="text-center align-middle">
+                    <form method="POST" action="/projects/update_contact"  style="display: inline-block;">
+                        <input type="hidden" name="contact_id" value="{{ contact[0] }}">
+                        <button type= "submit" class="btn btn-warning mt-3 mb-4">Update Contact</button>
+                    </form>
+
+                    <form method="POST" action="/projects/delete_contact"  style="display: inline-block;">
+                        <input type="hidden" name="contact_id" value="{{ contact[0] }}">
+                        <button type= "submit" class="btn btn-danger mt-2 mb-3">Delete Contact</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+{% endblock %}
+</html>

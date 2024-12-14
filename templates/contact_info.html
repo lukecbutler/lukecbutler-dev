@@ -1,0 +1,25 @@
+{% extends "abase.html" %}
+{% block title %}Contact Information{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <section class="p-4 bg-light rounded shadow-sm contact-card">
+        <h2 id="contacth2" class="text-center bg-lightskyblue text-white p-2 rounded mb-4">Contact Information</h2>
+        <ul class="list-group">
+            <li class="list-group-item border-0 text-muted">
+                <strong>Email:</strong> 
+                <a href="mailto:lcb9606@uncw.edu" class="text-primary">lcb9606@uncw.edu</a>
+            </li>
+            <li class="list-group-item border-0 text-muted">
+                <strong>GitHub:</strong> 
+                <a href="https://github.com/lukecbutler" target="_blank" class="text-primary">https://github.com/lukecbutler</a>
+            </li>
+        </ul>
+    </section>
+</div>
+
+{% endblock %}
