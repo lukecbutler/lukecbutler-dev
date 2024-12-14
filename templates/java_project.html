@@ -3,7 +3,7 @@
 
 {% block title %}Java Inventory System{% endblock %}
 
-{% block link %}<link rel="stylesheet" href="{{ url_for('static', filename='css/java_project.css') }}">
+{% block link %}<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -11,14 +11,14 @@
   
 
 
-    <h1 id="page-title">Java Clothing Inventory System</h1>
+    <h1 id="page-title" class="text-center mt-2 mb-2">Java Clothing Inventory System</h1>
 
-    <p id="java-files">
+    <p id="java-files" class="text-center">
     <a href="https://github.com/lukecbutler/JavaClothingInventorySystem/tree/main/src/main/java/com/example/classwork">Files on GitHub</a>
     </p>
     
-    <div class="container">
-      <iframe 
+    <div class="container-fluid row">
+      <iframe class="col-md-8 text-center"
       width="1317" 
       height="741" 
       src="https://www.youtube.com/embed/05furilTJVM" 
@@ -29,7 +29,10 @@
       allowfullscreen>
       </iframe>
 
-      <img src="{{ url_for('static', filename='images/javaUML.svg') }}" alt="Java Project UML" id="uml">
+      <img class="col-md-4 text-center"
+      src="{{ url_for('static', filename='images/javaUML.svg') }}" 
+      alt="Java Project UML" 
+      id="uml">
     </div>
 </body>
 {% endblock %}

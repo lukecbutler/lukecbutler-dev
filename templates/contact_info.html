@@ -1,35 +1,7 @@
 {% extends "abase.html" %}
 {% block title %}Contact Information{% endblock %}
 {% block link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
-<style>
-    :root {
-        --bs-skyblue: lightskyblue; /* Skyblue color */
-    }
-
-    .bg-lightskyblue {
-        background-color: var(--bs-skyblue) !important;
-    }
-
-    .text-white {
-        color: white !important;
-    }
-
-    .contact-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-
-    .contact-info a {
-        text-decoration: none;
-        color: var(--bs-skyblue);
-        font-weight: bold;
-    }
-
-    .contact-info a:hover {
-        text-decoration: underline;
-    }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 {% endblock %}
 
 {% block body %}

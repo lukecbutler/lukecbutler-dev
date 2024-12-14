@@ -1,63 +1,73 @@
-<!-- pokedex html -->
 {% extends "abase.html" %}
 
-{% block title %}Pokedex{% endblock %}
-{% block link %}<link rel="stylesheet" href="{{url_for('static', filename = 'css/pokedex.css')}}">{% endblock %}
+{% block title %}Pokédex{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
 
 {% block body %}
-<body>
 
+<div class="container my-5">
+    <!-- Page Title -->
+    <h1 class="text-center pokemon-title mb-2">Original 151 Pokédex</h1>
 
-    <!-- id title is refferenced in the css file with a #-->
-    <h1 id = "title">
-        Original 151 Pokédex
-    </h1>
-
-    <form action="/projects/pokedex" method="POST" id="id-form">
-        <div id="enter-id">
-            <label>Enter Pokemon ID:</label>
-            <input type="text" name="pokemon-id" id="pokemon-id-form" placeholder="ie. 25 for Pikachu">
-            <button type="submit" id="pokemon-id-button">Get your Pokemon!</button>
-        </div>
-    </form>
-
-    <div id="error-div">
-        {{error}}
+    <!-- ID Input Form -->
+    <div class="row justify-content-center mb-2">
+        <form action="/projects/pokedex" method="POST" class="col-12 col-md-8 col-lg-6">
+            <div class="mb-3">
+                <label for="pokemon-id-form" class="form-label">Enter Pokémon ID:</label>
+                <input 
+                    type="text" 
+                    name="pokemon-id" 
+                    id="pokemon-id-form" 
+                    class="form-control" 
+                    placeholder="e.g., 25 for Pikachu" 
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Get Your Pokémon!</button>
+        </form>
     </div>
 
-    <div class="container">
-        {% if pokemon %}
+    <!-- Error Message -->
+    {% if error %}
+    <div class="alert alert-danger text-center">
+        {{ error }}
+    </div>
+    {% endif %}
 
-        <img src="{{url_for('static', filename = 'images/pokemon/' + picture_id + '.png')}}" id="pokemon-picture" class="image">
+    <!-- Pokémon Details -->
+    {% if pokemon %}
+    <div class="row justify-content-center align-items-center">
+        <!-- Pokémon Image -->
+        <div class="col-12 col-md-4 text-center">
+            <img 
+                src="{{ url_for('static', filename='images/pokemon/' + picture_id + '.png') }}" 
+                alt="Pokémon Image" 
+                class="img-fluid rounded shadow">
+        </div>
 
-        <div class="pokemon-text">
-            <ul>
-                <li>
-                    Pokemon ID: {{id}}
-                </li>
-                <li>
-                    Species: {{species}}
-                </li>
-                <li>
-                    Type: {{type1}}
-                </li>
-                {% if type2 %}
-                <li>
-                    Secondary Type: {{type2}}
-                </li>
-                {% endif %}
-                <li>
-                    Height: {{feet}}' {{inches}}"
-                </li>
-                <li>
-                    Weight: {{weight}} lbs
-                </li>
-                <li>
-                    Entry: {{entry}}
-                </li>
-                {% endif %}
-            </ul>
+        <!-- Pokémon Information -->
+        <div class="col-12 col-md-6 pokemon-details">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary">Pokémon Details</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Pokémon ID:</strong> {{ id }}</li>
+                        <li class="list-group-item"><strong>Species:</strong> {{ species }}</li>
+                        <li class="list-group-item"><strong>Type:</strong> {{ type1 }}</li>
+                        {% if type2 %}
+                        <li class="list-group-item"><strong>Secondary Type:</strong> {{ type2 }}</li>
+                        {% endif %}
+                        <li class="list-group-item"><strong>Height:</strong> {{ feet }}' {{ inches }}"</li>
+                        <li class="list-group-item"><strong>Weight:</strong> {{ weight }} lbs</li>
+                        <li class="list-group-item"><strong>Entry:</strong> {{ entry }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-</body>
+    {% endif %}
+</div>
+
 {% endblock %}

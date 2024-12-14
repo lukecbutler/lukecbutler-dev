@@ -1,29 +1,7 @@
 {% extends "abase.html" %}
 {% block title %}Projects{% endblock %}
 {% block link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
-<style>
-    :root {
-        --bs-skyblue: lightskyblue; /* Define skyblue color */
-    }
-
-    .bg-lightskyblue {
-        background-color: var(--bs-skyblue) !important;
-    }
-
-    .text-white {
-        color: white !important;
-    }
-
-    .project-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add animation on hover */
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px); /* Lift the card on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Emphasize shadow on hover */
-    }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 {% endblock %}
 
 {% block body %}
