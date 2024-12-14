@@ -1,56 +1,48 @@
 /* base.css */
-/* header */
+
+/* Root Variables */
+:root {
+    --bs-skyblue: lightskyblue; /* Define custom skyblue color */
+}
+
+/* Base Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.text-white {
+    color: white !important; /* Ensure text is readable on skyblue background */
+}
+
+.bg-lightskyblue {
+    background-color: var(--bs-skyblue) !important; /* Use custom skyblue color */
+}
+
+/* Navbar Styles */
+.navbar-nav .nav-item.active {
+    background-color: var(--bs-skyblue); /* Highlight color for active menu item */
+    color: white; /* Text color for better contrast */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: white; /* Ensure link text is white */
+}
+
+/* Contact Section */
 #contact {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto; /* Center and add bottom margin */
     max-width: 300px;
-    margin: auto;
 }
-
-.navbar-nav .nav-item.active {
-    background-color: lightskyblue; /* Highlight color for active menu item */
-    color: white; /* Text color for better contrast */
-    border-radius: 5px; /* Rounded corners for a nicer appearance */
-}
-
-.navbar-nav .nav-item.active .nav-link {
-    color: white; /* Ensure the link text is white for readability */
-}
-
-/* Custom background class for skyblue */
-:root {
-    --bs-skyblue: lightskyblue; /* Define the custom skyblue color */
-}
-.bg-lightskyblue {
-    background-color: var(--bs-skyblue) !important; /* Use the custom skyblue variable */
-}
-.text-white {
-    color: white !important; /* Ensure text is readable on skyblue background */
-}
-/* Custom background class for skyblue */
-
-:root {
-    --bs-skyblue: lightskyblue; /* Skyblue color */
-}
-
-
-.bg-lightskyblue {
-    background-color: var(--bs-skyblue) !important;
-}
-
-
-.text-white {
-    color: white !important;
-}
-
 
 .contact-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .contact-info a {
     text-decoration: none;
@@ -62,12 +54,9 @@
     text-decoration: underline;
 }
 
-:root {
-    --bs-skyblue: lightskyblue; /* Define skyblue color */
-}
-
+/* Pokémon Section */
 .pokemon-title {
-    color: var(--bs-skyblue);
+    color: var(--bs-skyblue); /* Use skyblue for title */
 }
 
 .pokemon-details ul {
@@ -79,23 +68,12 @@
     margin-bottom: 10px;
 }
 
-:root {
-    --bs-skyblue: lightskyblue; /* Define skyblue color */
-}
-
-.bg-lightskyblue {
-    background-color: var(--bs-skyblue) !important;
-}
-
-.text-white {
-    color: white !important;
-}
-
+/* Project Cards */
 .project-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add animation on hover */
 }
 
 .project-card:hover {
     transform: translateY(-5px); /* Lift the card on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Emphasize shadow on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Emphasize shadow */
 }
